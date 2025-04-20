@@ -8,5 +8,7 @@ public class SkinClothDataGenerator implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
+        pack.addProvider(SkinClothEnglishLangProvider::new);
+        pack.addProvider(SkinClothJapaneseLangProvider::new);
     }
 }

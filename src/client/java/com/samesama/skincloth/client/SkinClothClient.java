@@ -10,6 +10,7 @@ import net.minecraft.client.util.InputUtil;
 public class SkinClothClient implements ClientModInitializer {
     // --- キーバインドの定義 ---
     private static KeyBinding[] keys = new KeyBinding[KeyCode.values().length];
+    private static KeyBinding all_on;
     private static final String KEY_CATEGORY = "key.categories." + SkinCloth.MOD_ID;
 
     @Override
