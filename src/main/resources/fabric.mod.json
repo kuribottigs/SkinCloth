@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "skincloth",
+  "version": "${version}",
+  "name": "SkinCloth",
+  "description": "",
+  "authors": ["kurigs"],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/skincloth/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "fabric-datagen": [
+      "com.samesama.skincloth.client.datagen.SkinClothDataGenerator"
+    ],
+    "client": [
+      "com.samesama.skincloth.client.SkinClothClient"
+    ],
+    "main": [
+      "com.samesama.skincloth.SkinCloth"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
