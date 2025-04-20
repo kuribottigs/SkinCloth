@@ -17,6 +17,7 @@ public class SkinClothEnglishLangProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(TranslationBuilder translationBuilder) {
+        translationBuilder.add("key.categories.skincloth", "Skin Cloth Key");
         for(KeyCode keyCode : KeyCode.values()){
                     //"key.skincloth." + keyCode.getName(),
             translationBuilder.add(keyCode.getLangName(), keyCode.getUsLang());

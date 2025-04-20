@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(GameOptions.class)
 public abstract class GameOptionsWriteMixin {
-    @Inject(method = "write", at = @At("HEAD"))
+    /*@Inject(method = "write", at = @At("HEAD"))
     private void skincloth_onSetteingSaved(CallbackInfo ci){
         MinecraftClient client = MinecraftClient.getInstance();
         client.execute(() -> {
@@ -27,5 +27,5 @@ public abstract class GameOptionsWriteMixin {
                 // System.out.println("[MyMod] GameOptions written, sending chat message.");
             }
         });
-    }
+    }*/
 }

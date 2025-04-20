@@ -53,7 +53,7 @@ public class SkinClothClient implements ClientModInitializer {
 				while (keys[keyCode.getId()].wasPressed()) {
 					// プレイヤーが存在する場合のみ実行 (ワールドに入っていない場合などはnull)
 					if (client.player != null) {
-						client.player.sendMessage(Text.literal("First Key Pressed!"), false);
+						//client.player.sendMessage(Text.literal("First Key Pressed!"), false);
 						// ここにキーが押されたときのアクションを記述
 						if(client.options.isPlayerModelPartEnabled(keyCode.getPart())){
 							client.options.togglePlayerModelPart(keyCode.getPart(),false);
