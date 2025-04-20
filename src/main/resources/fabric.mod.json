@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "skincloth",
+	"version": "${version}",
+	"name": "SkinCloth",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"kuryu"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/skincloth/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.samesama.skincloth.SkinCloth"
+		],
+		"client": [
+			"com.samesama.skincloth.client.SkinClothClient"
+		]
+	},
+	"mixins": [
+		"skincloth.mixins.json",
+		{
+			"config": "skincloth.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.13",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
