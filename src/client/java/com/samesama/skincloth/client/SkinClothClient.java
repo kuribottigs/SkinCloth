@@ -59,14 +59,14 @@ public class SkinClothClient implements ClientModInitializer {
         }
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             // firstKeyBindingが押された瞬間を検出
-            while (all_on.wasPressed() || all_off.wasPressed()) {
-                // プレイヤーが存在する場合のみ実行 (ワールドに入っていない場合などはnull)
-                if (all_on.wasPressed()) {
-                    AllOnOff(true,client);
-                }
-                if(all_off.wasPressed()){
-                    AllOnOff(false,client);
-                }
+            while (all_on.wasPressed()) {
+                AllOnOff(true,client);
+            }
+        });
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            // firstKeyBindingが押された瞬間を検出
+            while (all_off.wasPressed()) {
+                AllOnOff(false,client);
             }
         });
 
