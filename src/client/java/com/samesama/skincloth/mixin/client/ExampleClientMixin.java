@@ -1,4 +1,4 @@
-package com.samesama.mixin.client;
+package com.samesama.skincloth.mixin.client;
 
 import net.minecraft.client.MinecraftClient;
 import org.spongepowered.asm.mixin.Mixin;

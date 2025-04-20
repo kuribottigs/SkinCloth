@@ -1,9 +1,10 @@
 {
 	"required": true,
-	"package": "com.samesama.mixin.client",
+	"package": "com.samesama.skincloth.mixin.client",
 	"compatibilityLevel": "JAVA_17",
 	"client": [
-		"ExampleClientMixin"
+		"ExampleClientMixin",
+		"GameOptionsWriteMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

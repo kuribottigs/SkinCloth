@@ -20,6 +20,9 @@
 		],
 		"client": [
 			"com.samesama.skincloth.client.SkinClothClient"
+		],
+		"fabric-datagen": [
+			"com.samesama.skincloth.datagen.SCDataGenerator"
 		]
 	},
 	"mixins": [
