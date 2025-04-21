@@ -13,6 +13,7 @@ public class SkinClothClient implements ClientModInitializer {
     private static final KeyBinding[] keys = new KeyBinding[KeyCode.values().length];
     private static KeyBinding all_on;
     private static KeyBinding all_off;
+    private static KeyBinding all_on_off;
     private static final String KEY_CATEGORY = "key.categories." + SkinCloth.MOD_ID;
 
     @Override
