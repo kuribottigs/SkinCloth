@@ -2,6 +2,7 @@ plugins {
     id 'fabric-loom' version '1.10-SNAPSHOT'
     id 'maven-publish'
     id "com.modrinth.minotaur" version "2.+"
+    id 'org.jetbrains.kotlin.jvm'
 
 }
 
@@ -30,6 +31,12 @@ fabricApi {
 }
 
 repositories {
+    //Cloth config
+    maven { url "https://maven.shedaniel.me/" }
+
+    maven { url "https://maven.terraformersmc.com/releases/" }
+
+    mavenCentral()
     // Add repositories to retrieve artifacts from in here.
     // You should only use this when depending on other mods because
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
@@ -51,9 +58,15 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
+    modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_version}"){
+        exclude(group: "net.fabricmc.fabric-api")
+    }
     //modmenu
     //modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
+
+    modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
 }
 
 processResources {
@@ -114,4 +127,7 @@ publishing {
         // The repositories here will be used for publishing your artifact, not for
         // retrieving dependencies.
     }
+}
+kotlin {
+    jvmToolchain(19)
 }

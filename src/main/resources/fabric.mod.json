@@ -18,11 +18,18 @@
     ],
     "main": [
       "com.samesama.skincloth.SkinCloth"
+    ],
+    "modmenu": [
+      "com.samesama.skincloth.client.config.SkinClothModMenuIntegration"
     ]
+  },
+  "suggests": {
+    "modmenu": ">=9.0.0"
   },
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
-    "minecraft": "${minecraft_version}"
+    "minecraft": "${minecraft_version}",
+    "cloth-config": ">=13.0.138"
   }
 }

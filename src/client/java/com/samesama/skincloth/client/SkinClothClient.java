@@ -1,11 +1,15 @@
 package com.samesama.skincloth.client;
 
 import com.samesama.skincloth.SkinCloth;
+import com.samesama.skincloth.client.config.SkinClothConfig;
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
+import net.minecraft.client.render.entity.PlayerModelPart;
 import net.minecraft.client.util.InputUtil;
 
 public class SkinClothClient implements ClientModInitializer {
@@ -15,9 +19,13 @@ public class SkinClothClient implements ClientModInitializer {
     private static KeyBinding all_off;
     private static KeyBinding all_on_off;
     private static final String KEY_CATEGORY = "key.categories." + SkinCloth.MOD_ID;
+    public static SkinClothConfig CONFIG;
 
     @Override
     public void onInitializeClient() {
+        //設定クラスの登録
+        AutoConfig.register(SkinClothConfig.class, GsonConfigSerializer::new);
+        CONFIG = AutoConfig.getConfigHolder(SkinClothConfig.class).getConfig();
 
         // ーーー　キーバインドの初期化と登録　ーーー
         // 初期化
@@ -37,6 +45,12 @@ public class SkinClothClient implements ClientModInitializer {
         ));
         all_off = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 "key." + SkinCloth.MOD_ID + ".alloff", // 翻訳キー (langファイルで定義)
+                InputUtil.Type.KEYSYM,        // 入力タイプ (キーボード)
+                InputUtil.UNKNOWN_KEY.getCode(),              // デフォルトのキー (Gキー)
+                KEY_CATEGORY                  // キーバインドのカテゴリ
+        ));
+        all_on_off = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+                "key." + SkinCloth.MOD_ID + ".allonoff", // 翻訳キー (langファイルで定義)
                 InputUtil.Type.KEYSYM,        // 入力タイプ (キーボード)
                 InputUtil.UNKNOWN_KEY.getCode(),              // デフォルトのキー (Gキー)
                 KEY_CATEGORY                  // キーバインドのカテゴリ
@@ -70,6 +84,13 @@ public class SkinClothClient implements ClientModInitializer {
                 AllOnOff(false,client);
             }
         });
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            // firstKeyBindingが押された瞬間を検出
+            while (all_on_off.wasPressed()) {
+                AllOnOff(!CONFIG.enableALL,client);
+                CONFIG.enableALL = !CONFIG.enableALL;
+            }
+        });
 
     }
 
@@ -78,9 +99,15 @@ public class SkinClothClient implements ClientModInitializer {
             //client.player.sendMessage(Text.literal("First Key Pressed!"), false);
             // ここにキーが押されたときのアクションを記述
             for(KeyCode keyCode : KeyCode.values()) {
-                client.options.togglePlayerModelPart(keyCode.getPart(), b);
-                client.options.write();
+                if(!(keyCode.getPart() == PlayerModelPart.CAPE) || CONFIG.enableAllCape) {
+                    client.options.togglePlayerModelPart(keyCode.getPart(), b);
+                    client.options.write();
+                }
             }
         }
+    }
+
+    public static SkinClothConfig getConfig() {
+        return CONFIG;
     }
 }
