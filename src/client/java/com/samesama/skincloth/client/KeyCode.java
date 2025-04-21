@@ -42,5 +42,5 @@ public enum KeyCode {
     public String getUsLang(){ return this.usLang; }
 
     public String getLangName(){ return this.langName; }
-    public boolean isTakeon(){ return this.takeon;}
+    //public boolean isTakeon(){ return this.takeon;}
 }
