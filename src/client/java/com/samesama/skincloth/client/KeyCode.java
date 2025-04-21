@@ -3,6 +3,8 @@ package com.samesama.skincloth.client;
 import com.samesama.skincloth.SkinCloth;
 import net.minecraft.client.render.entity.PlayerModelPart;
 
+import static com.samesama.skincloth.client.SkinClothClient.CONFIG;
+
 public enum KeyCode {
     CAPE(0, "cape",PlayerModelPart.CAPE,"Cape"),
     JACKET(1, "jacket",PlayerModelPart.JACKET,"Jacket"),
@@ -18,6 +20,7 @@ public enum KeyCode {
     private final String usLang;
     private final PlayerModelPart part;
     private final String langName;
+    //private final boolean takeon;
 
     private KeyCode(int id, String name, PlayerModelPart part, String us_lang ) {
         this.id = id;
@@ -25,7 +28,7 @@ public enum KeyCode {
         this.part = part;
         this.usLang = us_lang;
         this.langName = "key." + SkinCloth.MOD_ID + name;
-
+        //this.takeon = b;
     }
 
     public int getId() { return id; }
@@ -39,4 +42,5 @@ public enum KeyCode {
     public String getUsLang(){ return this.usLang; }
 
     public String getLangName(){ return this.langName; }
+    public boolean isTakeon(){ return this.takeon;}
 }
