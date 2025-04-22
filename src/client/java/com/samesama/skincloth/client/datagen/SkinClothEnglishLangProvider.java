@@ -18,6 +18,9 @@ public class SkinClothEnglishLangProvider extends FabricLanguageProvider {
         translationBuilder.add("key.categories.skincloth", "Skin Cloth Key");
         translationBuilder.add("key." + SkinCloth.MOD_ID + ".allon","All On");
         translationBuilder.add("key." + SkinCloth.MOD_ID + ".alloff","All Off");
+        translationBuilder.add("key." + SkinCloth.MOD_ID + ".allonoff","Key for Switch On Off");
+        translationBuilder.add("text.autoconfig.skincloth.option.enableAllJacket", "All Jacket");
+        translationBuilder.add("text.autoconfig.skincloth.title", "SkinCloth Config");
         for(KeyCode keyCode : KeyCode.values()){
                     //"key.skincloth." + keyCode.getName(),
             translationBuilder.add(keyCode.getLangName(), keyCode.getUsLang());

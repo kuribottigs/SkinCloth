@@ -22,7 +22,7 @@ public class SkinClothConfig implements ConfigData {
     public boolean enableAllRightPantsLegs = true;
     @Comment("Not implemented : This is whether to turn on hat when AllOnOff is selected")
     public boolean enableAllHat = true;
-    @Comment("Not implemented : This is whether to turn on hat when AllOnOff is selected")
+    @Comment("Not implemented : Overlay")
     public boolean enableOverlay = false;
 
 
