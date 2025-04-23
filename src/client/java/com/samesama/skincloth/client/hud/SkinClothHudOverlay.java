@@ -24,7 +24,7 @@ public class SkinClothHudOverlay implements HudRenderCallback {
         Identifier CAPE_TEXTURE = client.player.getSkinTextures().capeTexture();
 
         if (client != null) {
-            SkinClothConfig CONFIG = SkinClothClient.getConfig();
+
             // 描画位置 (左上隅)
             int posX = 5;
             int posY = 5;
