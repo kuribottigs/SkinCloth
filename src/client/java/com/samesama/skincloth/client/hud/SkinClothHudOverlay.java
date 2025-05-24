@@ -4,6 +4,7 @@ import com.samesama.skincloth.SkinCloth;
 import com.samesama.skincloth.client.KeyCode;
 import com.samesama.skincloth.client.SkinClothClient;
 import com.samesama.skincloth.client.config.SkinClothConfig;
+import me.shedaniel.autoconfig.AutoConfig;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
@@ -22,6 +23,7 @@ public class SkinClothHudOverlay implements HudRenderCallback {
     public void onHudRender(DrawContext drawContext, float tickDelta){
         MinecraftClient client = MinecraftClient.getInstance();
         Identifier CAPE_TEXTURE = client.player.getSkinTextures().capeTexture();
+
 
         if (client != null) {
 
@@ -51,7 +53,7 @@ public class SkinClothHudOverlay implements HudRenderCallback {
             //  明示的に指定するオーバーロードもあります)
             int uWidth = textureFileWidth;
             int vHeight = textureFileHeight;
-
+            SkinClothConfig CONFIG = AutoConfig.getConfigHolder(SkinClothConfig.class).getConfig();
 
             // テクスチャを描画
             // drawTexture(Identifier texture, int x, int y, float u, float v, int width, int height, int textureWidth, int textureHeight)
@@ -60,6 +62,7 @@ public class SkinClothHudOverlay implements HudRenderCallback {
             //   - u, v: テクスチャ画像内で描画を開始するピクセル位置 (左上)
             //   - width, height: 画面上に描画するサイズ
             //   - textureWidth, textureHeight: テクスチャファイル全体のサイズ (これによりUV座標が正しくスケーリングされる)
+            if(CONFIG.enableOverlay == true){
 
             drawContext.drawTexture(
                     OVERLAY_TEXTURE,
@@ -194,6 +197,7 @@ public class SkinClothHudOverlay implements HudRenderCallback {
                             32 // テクスチャファイル自体の高さ
                     );
                 }
+            }
             }
 
 
