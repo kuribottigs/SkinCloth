@@ -19,8 +19,17 @@ public class SkinClothEnglishLangProvider extends FabricLanguageProvider {
         translationBuilder.add("key." + SkinCloth.MOD_ID + ".allon","All On");
         translationBuilder.add("key." + SkinCloth.MOD_ID + ".alloff","All Off");
         translationBuilder.add("key." + SkinCloth.MOD_ID + ".allonoff","Key for Switch On Off");
-        translationBuilder.add("text.autoconfig.skincloth.option.enableAllJacket", "All Jacket");
+
         translationBuilder.add("text.autoconfig.skincloth.title", "SkinCloth Config");
+        translationBuilder.add("text.autoconfig.skincloth.option.enableAllCape", "All Feature including Cape");
+        translationBuilder.add("text.autoconfig.skincloth.option.enableAllJacket", "All Feature including Jacket");
+        translationBuilder.add("text.autoconfig.skincloth.option.enableAllLeftSleeve", "All Feature including Left Sleeve");
+        translationBuilder.add("text.autoconfig.skincloth.option.enableAllRightSleeve", "All Feature including Right Sleeve");
+        translationBuilder.add("text.autoconfig.skincloth.option.enableAllLeftPantsLegs", "All Feature including Left Pants Leg");
+        translationBuilder.add("text.autoconfig.skincloth.option.enableAllRightPantsLegs", "All Feature including Right Pants Leg");
+        translationBuilder.add("text.autoconfig.skincloth.option.enableAllHat", "All Feature including Hat");
+        translationBuilder.add("text.autoconfig.skincloth.option.enableOverlay", "Enable Overlay");
+
         for(KeyCode keyCode : KeyCode.values()){
                     //"key.skincloth." + keyCode.getName(),
             translationBuilder.add(keyCode.getLangName(), keyCode.getUsLang());
